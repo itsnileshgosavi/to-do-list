@@ -55,4 +55,18 @@ export class AppComponent {
     this.todos = this.todos.filter(item => item.id !== id);
     this.saveToLocal(); // Save todos to localStorage after deleting todo
   }
+  markIsDone(id: number): void {
+    const index = this.todos.findIndex(item => item.id === id);
+    
+
+  if (index !== -1 && !this.todos[index].isdone) {
+    // Update the todo item in the array
+    this.todos[index] = { ...this.todos[index], isdone: true };
+    this.saveToLocal(); 
+  }else{
+    this.todos[index] = { ...this.todos[index], isdone: false };
+    this.saveToLocal(); 
+
+    }
+  }
 }
